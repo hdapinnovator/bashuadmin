@@ -8,11 +8,12 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 function App() {
   const navigate = useNavigate()
-  let sub
+  let sub 
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       console.log(user)
+      // routing back to login
       if (user === null) return navigate('/bashuadmin/login')
     })
   }, [])
