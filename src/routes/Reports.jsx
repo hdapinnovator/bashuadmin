@@ -4,7 +4,8 @@ import { UserAuth } from '../context/AuthContext'
 import ConfirmModal from '../components/modals/confirm'
 import ViewData from '../components/modals/viewdata/viewdata'
 import NavBar from '../components/Navbar'
-
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebase'
 
 
 
@@ -46,6 +47,12 @@ const Reports = () => {
         }
     }
 
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user === null) return navigate('/login')
+        })
+    }, [])
 
 
     useEffect(() => {
@@ -127,7 +134,7 @@ const Reports = () => {
                                                                 {report.type}
                                                             </td>
                                                             <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                                                                {report.stick.content.substr(0, 52)}...
+                                                                {report?.stick?.content.substr(0, 52) || `Last flow sent: ${report?.flows[report.flows.length - 1]?.content}`}...
                                                             </td>
                                                             <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                                                 <a onClick={() => {

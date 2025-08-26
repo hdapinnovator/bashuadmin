@@ -27,7 +27,7 @@ const Login = () => {
                     // check if user is admin
                     const data = (await getDoc(doc(database, `users/${res.user.uid}`))).data()
                     if (data.admin) {
-                        navigate('/bashuadmin/sticks')
+                        navigate('/')
                     } else {
                         alert('Was unable to login')
                         setLoading(false)

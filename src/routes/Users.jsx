@@ -4,6 +4,10 @@ import { UserAuth } from '../context/AuthContext'
 import { database } from '../firebase'
 import ConfirmModal from '../components/modals/confirm'
 import NavBar from '../components/Navbar'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebase'
+
+
 
 const Users = () => {
     const [search, setSearch] = useState('')
@@ -15,7 +19,6 @@ const Users = () => {
 
 
     const [isOpen, setIsOpen] = useState(false);
-
 
 
     // deletet user
@@ -56,6 +59,13 @@ const Users = () => {
     const contactUser = (id) => {
 
     }
+
+    
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user === null) return navigate('/login')
+        })
+    }, [])
 
 
     useEffect(() => {

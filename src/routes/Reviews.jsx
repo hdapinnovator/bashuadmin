@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 import ViewData from '../components/modals/viewdata/viewdata'
 import NavBar from '../components/Navbar'
-
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebase'
 
 
 const Reviews = () => {
@@ -44,6 +45,12 @@ const Reviews = () => {
     }
 
 
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user === null) return navigate('/login')
+        })
+    }, [])
+    
 
     useEffect(() => {
         getReviews()
