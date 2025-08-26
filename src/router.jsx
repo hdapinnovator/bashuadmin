@@ -8,8 +8,8 @@ import Reviews from "./routes/Reviews"
 import Reports from "./routes/Reports"
 import Users from "./routes/Users"
 
-
-// defining the router
+ 
+// defining the router for the app
 export const router = createBrowserRouter([
   { path: '/', element: <App /> },
   { path: '/sticks', element: <App /> },
