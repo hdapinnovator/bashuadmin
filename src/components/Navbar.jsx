@@ -15,7 +15,7 @@ function NavBar() {
     const handleLogout = async () => {
         try {
             signOut(auth)
-            navigate('/login')
+            navigate('/bashuadmin/login')
         } catch (error) {
             console.log(error.message)
         }
