@@ -14,7 +14,7 @@ function App() {
     onAuthStateChanged(auth, async (user) => {
       console.log(user)
       // routing back to login
-      if (user === null) return navigate('/login')
+      if (user === null) return navigate('/bashuadmin/login')
     })
   }, [])
 

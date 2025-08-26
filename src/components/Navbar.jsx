@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth'
 
 
 function NavBar() {
+    const { logout } = UserAuth()
     const navigate = useNavigate()
     const { user, userdata } = UserAuth()
 
@@ -14,7 +15,7 @@ function NavBar() {
     const handleLogout = async () => {
         try {
             signOut(auth)
-            navigate('/login')
+            navigate('/bashuadmin/login')
         } catch (error) {
             console.log(error.message)
         }
@@ -44,37 +45,37 @@ function NavBar() {
 
             <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
                 <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/'}>
+                    <Link to={'/bashuadmin'}>
                         <span className="text-md hover:text-blue-500 duration-500">Sticks</span>
                     </Link>
                 </li>
 
                 <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/in-review'}>
+                    <Link to={'/bashuadmin/in-review'}>
                         <span className="text-md hover:text-blue-500 duration-500">In-Review</span>
                     </Link>
                 </li>
 
                 <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/banned'}>
+                    <Link to={'/bashuadmin/banned'}>
                         <span className="text-md hover:text-blue-500 duration-500">Banned</span>
                     </Link>
                 </li>
 
                 {!userdata?.normal && <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/reports'}>
+                    <Link to={'/bashuadmin/reports'}>
                         <span className="text-md hover:text-blue-500 duration-500">Reports</span>
                     </Link>
                 </li>}
 
                 <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/reviews'}>
+                    <Link to={'/bashuadmin/reviews'}>
                         <span className="text-md hover:text-blue-500 duration-500">Reviews</span>
                     </Link>
                 </li>
 
                 {!userdata?.normal && <li className="mx-4 my-6 md:my-0">
-                    <Link to={'/users'}>
+                    <Link to={'/bashuadmin/users'}>
                         <span className="text-md hover:text-blue-500 duration-500">Users</span>
                     </Link>
                 </li>}

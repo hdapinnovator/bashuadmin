@@ -6,6 +6,7 @@ import ConfirmModal from '../components/modals/confirm'
 import NavBar from '../components/Navbar'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -16,7 +17,7 @@ const Users = () => {
     const [filtered, setFiltered] = useState([])
     const [selected, setSelected] = useState(null)
     const { banUser, userdata } = UserAuth()
-
+    const navigate = useNavigate()
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -60,10 +61,11 @@ const Users = () => {
 
     }
 
-    
+
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
-            if (user === null) return navigate('/login')
+            console.log(user)
+            if (user === null) return navigate('/bashuadmin/login')
         })
     }, [])
 

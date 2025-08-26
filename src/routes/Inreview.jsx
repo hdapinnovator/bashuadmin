@@ -48,7 +48,7 @@ const InReview = () => {
 
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
-            if (user === null) return navigate('/login')
+            if (user === null) return navigate('/bashuadmin/login')
         })
     }, [])
 
