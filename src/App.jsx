@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       console.log(user)
-      if (user === null) return navigate('/login')
+      if (user === null) return navigate('/bashuadmin/login')
     })
   }, [])
 

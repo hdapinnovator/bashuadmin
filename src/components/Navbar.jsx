@@ -7,7 +7,6 @@ import { signOut } from 'firebase/auth'
 
 
 function NavBar() {
-    const { logout } = UserAuth()
     const navigate = useNavigate()
     const { user, userdata } = UserAuth()
 
