@@ -12,7 +12,6 @@ import Users from "./routes/Users"
 // defining the router for the app
 export const router = createBrowserRouter([
   { path: 'bashuadmin/', element: <App /> },
-  { path: 'bashuadmin/sticks', element: <App /> },
   { path: 'bashuadmin/login', element: <Login /> },
   { path: 'bashuadmin/banned', element: <Banned /> },
   { path: 'bashuadmin/reviews', element: <Reviews /> },

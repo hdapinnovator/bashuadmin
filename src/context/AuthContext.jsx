@@ -122,7 +122,7 @@ export const AuthContextProvider = ({ children }) => {
                                 title: 'Bashu Team',
                                 body: `After a review, your stick with title ${data.stick.title} thrown on ${data.stick.date.split(' G')} has been approved and is live!`,
                                 data: {
-                                    action: 'approved',
+                                    action: 'approved-stick',
                                     stick: data.stick
                                 }
                             }
@@ -149,7 +149,7 @@ export const AuthContextProvider = ({ children }) => {
                                 title: 'Bashu Team',
                                 body: `After a review, your stick with title ${data.stick.title} thrown on ${data.stick.date.split(' G')} has been banned. Should you have questions, please contact us!`,
                                 data: {
-                                    action: 'banned',
+                                    action: 'banned-stick',
                                     stick: data.stick
                                 }
                             }

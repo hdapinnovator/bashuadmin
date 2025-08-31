@@ -8,15 +8,15 @@ export default function ConfirmModal({ setIsOpen, title, message, user }) {
 
     const handleConfirm = async () => {
         // update user document
-        await updateDoc(doc(database, `users/${user.id}`), { banned: true })
-            .then(res => {
+        // await updateDoc(doc(database, `users/${user.id}`), { banned: true })
+        //     .then(res => {
                 // set push notificaiton to the user
                 sendPushNotification(user)
-            }).catch(e => {
-                console.log(e)
-                alert('Could not completed this operation. Please try again later.')
-            })
-        setIsOpen(false);
+        //     }).catch(e => {
+        //         console.log(e)
+        //         alert('Could not completed this operation. Please try again later.')
+        //     })
+        // setIsOpen(false);
     };
 
 
@@ -40,7 +40,10 @@ export default function ConfirmModal({ setIsOpen, title, message, user }) {
                 sound: 'default',
                 title: 'Bashu Team',
                 body: 'Your account have now been banned due to...',
-                data: {}
+                data: {
+                    action: 'bann account',
+                    reason: ''
+                }
             }
 
             const options = {
